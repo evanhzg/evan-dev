@@ -351,3 +351,93 @@ video {
     color: rgb(107 114 128/var(--tw-text-opacity));
   }
 }
+* {
+  font-family: Coolvetica;
+}
+
+.generic-section {
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 10vw;
+  justify-content: space-between;
+  height: 100dvh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.generic-section .generic-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.generic-section .generic-text-block > * {
+  margin: 0;
+}
+.generic-section .generic-text-block h2 {
+  color: #139dac;
+  font-size: 7.5em;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+}
+.generic-section .generic-text-block p {
+  max-width: 55vw;
+  font-size: 2em;
+}
+.generic-section .generic-text-block .light-p {
+  color: white;
+}
+.generic-section .generic-text-block .dark-p {
+  color: #003f3b;
+}
+.generic-section button {
+  font-family: Coolvetica;
+  color: #fcee21;
+  font-size: 1.7em;
+  padding: 10px 50px;
+  border-radius: 90px;
+  background-color: transparent;
+  border: 2px solid #fcee21;
+  max-width: 8em;
+  align-self: center;
+}
+.generic-section:before {
+  content: "";
+}
+.generic-section .bubbles-group {
+  display: flex;
+  justify-content: space-between;
+}
+.generic-section .bubbles-group .bubble {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+.generic-section .bubbles-group .bubble .bubble-icon {
+  background-color: #139dac;
+  border-radius: 100%;
+  width: 12em;
+  height: 12em;
+}
+.generic-section .bubbles-group .bubble .bubble-label {
+  color: #003f3b;
+}
+.generic-section .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 40vw;
+}
+.generic-section .contact-form input {
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 2.5em;
+  padding: 4px;
+}
+.generic-section .contact-form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.generic-section .contact-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}

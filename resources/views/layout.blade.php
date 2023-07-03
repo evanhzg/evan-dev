@@ -8,6 +8,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/variables.css') }}" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/coolvetica-2" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/main.js') }}" defer></script>

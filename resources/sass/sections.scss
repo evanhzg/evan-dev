@@ -1,0 +1,111 @@
+$primary-color: #003f3b;
+$secondary-color: #fcee21;
+$accent-color: #139dac;
+
+* {
+    font-family: Coolvetica;
+}
+
+.generic-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10vh 10vw;
+    justify-content: space-between;
+
+    height: 100dvh;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .generic-text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        > * {
+            margin: 0;
+        }
+
+        h2 {
+            color: $accent-color;
+            font-size: 7.5em;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.1);
+        }
+
+        p {
+            max-width: 55vw;
+
+            font-size: 2em;
+        }
+
+        .light-p {
+            color: white;
+        }
+
+        .dark-p {
+            color: $primary-color;
+        }
+    }
+
+    button {
+        font-family: Coolvetica;
+
+        color: $secondary-color;
+        font-size: 1.7em;
+        padding: 10px 50px;
+        border-radius: 90px;
+        background-color: transparent;
+        border: 2px solid $secondary-color;
+
+        max-width: 8em;
+        align-self: center;
+    }
+
+    &:before {
+        content: '';
+    }
+
+    .bubbles-group {
+        display: flex;
+        justify-content: space-between;
+
+        .bubble {
+            display: flex;
+            align-items: center;
+
+            flex-direction: column;
+            gap: 1em;
+
+            .bubble-icon {
+                background-color: $accent-color;
+                border-radius: 100%;
+                width: 12em;
+                height: 12em;
+            }
+
+            .bubble-label {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        max-width: 40vw;
+        input {
+            color: white;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid white;
+            font-size: 2.5em;
+            padding: 4px;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}
