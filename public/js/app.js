@@ -73,7 +73,7 @@ function handleLabelMovement(inputId) {
     label.style.color = '#139dac';
   };
   var handleHover = function handleHover() {
-    if (!input.matches(':focus')) {
+    if (!input.matches(':focus') && input.value.trim() === '') {
       label.style.fontSize = '2.1em';
       label.style.color = '#139dac';
     }

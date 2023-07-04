@@ -548,6 +548,39 @@ footer .footer-group .content-footer p {
   user-select: none;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes buttonHover {
+  0% {
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+  }
+  100% {
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+@keyframes buttonUnhover {
+  0% {
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  100% {
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+  }
+}
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -571,6 +604,10 @@ footer .footer-group .content-footer p {
   padding: 4px;
   -webkit-appearance: none;
   outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.contact-form .input-group input:hover {
+  border-bottom-color: #139dac;
 }
 .contact-form .input-group label {
   position: absolute;
@@ -578,9 +615,6 @@ footer .footer-group .content-footer p {
   top: 18%;
   color: rgba(255, 255, 255, 0.5);
   transition: all 0.1s ease-in-out;
-}
-.contact-form .input-group input:hover + label {
-  color: #139dac;
 }
 
 /*# sourceMappingURL=variables.css.map */
