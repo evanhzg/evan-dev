@@ -7,6 +7,9 @@ use Illuminate\View\Component;
 class Section extends Component
 {
     public $title;
+
+    public $id;
+
     public $content;
     public $showButton;
     public $lightContent;
@@ -14,9 +17,10 @@ class Section extends Component
     public $coverUrl;
     public $buttonTitle;
 
-    public function __construct($title, $content, $coverUrl = '', $showButton = false, $lightContent = false, $buttonTitle = '')
+    public function __construct($title, $id, $content, $coverUrl = '', $showButton = false, $lightContent = false, $buttonTitle = '')
     {
         $this->title = $title;
+        $this->id = $id;
         $this->content = $content;
         $this->showButton = $showButton;
         $this->lightContent = $lightContent;

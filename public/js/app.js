@@ -15,7 +15,89 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-alert('hello world');
+
+// Get all the generic-text-block elements
+var textBlocks = document.querySelectorAll('.generic-text-block');
+var parentContainer = document.querySelector('.parent-container');
+var app = document.querySelector('#app');
+
+// Add scroll event listener
+app.addEventListener('scroll', handleScrollAnimation);
+
+// Function to check if an element is in the viewport
+function isElementInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  return rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+}
+
+// Function to handle scroll animation
+function handleScrollAnimation() {
+  textBlocks.forEach(function (textBlock, index) {
+    var parentElement = textBlock.parentElement;
+    var isVisible = isElementInViewport(parentElement);
+    var hasAnimationClass = textBlock.classList.contains('slide-in');
+    var button = parentElement.querySelector('button');
+    var bubbles = parentElement.querySelector('.bubbles-group');
+    var form = parentElement.querySelector('.contact-form');
+    if (isVisible && !hasAnimationClass) {
+      textBlock.classList.add('slide-in');
+      setTimeout(function () {
+        if (bubbles) {
+          bubbles.style.opacity = '1';
+          bubbles.style.transition = 'opacity 1s ease-in-out';
+        }
+        if (form) {
+          form.style.opacity = '1';
+          form.style.transition = 'opacity 1s ease-in-out';
+        }
+      }, 1000);
+      setTimeout(function () {
+        if (button) {
+          button.style.opacity = '1';
+          button.style.transition = 'opacity 1s ease-in-out';
+        }
+      }, 1500);
+    }
+  });
+}
+
+// Function to handle label movement on input focus
+// Function to handle label movement on input focus
+function handleLabelMovement(inputId) {
+  var input = document.getElementById(inputId);
+  var label = input.previousElementSibling;
+  var handleFocus = function handleFocus() {
+    label.style.fontSize = '1em';
+    label.style.transform = 'translateY(-110%)';
+    label.style.left = '0';
+    label.style.color = '#139dac';
+  };
+  var handleHover = function handleHover() {
+    if (!input.matches(':focus')) {
+      label.style.fontSize = '2.1em';
+      label.style.color = '#139dac';
+    }
+  };
+  var handleBlur = function handleBlur() {
+    if (!input.matches(':focus') && input.value.trim() === '') {
+      label.style.fontSize = '';
+      label.style.transform = '';
+      label.style.left = '';
+      label.style.color = '';
+    }
+  };
+  input.addEventListener('focus', handleFocus);
+  input.addEventListener('blur', handleBlur);
+  input.addEventListener('mouseenter', handleHover);
+  input.addEventListener('mouseleave', handleBlur);
+}
+
+// Call the function for each input
+handleLabelMovement('nom-input');
+handleLabelMovement('societe-input');
+handleLabelMovement('email-input');
+handleLabelMovement('requete-input');
+handleScrollAnimation();
 
 /***/ }),
 
@@ -2028,9 +2110,9 @@ function isnan (val) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/app.scss":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./resources/sass/app.scss":
 /*!***********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/app.scss ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./resources/sass/app.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -2045,16 +2127,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@tailwind base;\n@tailwind components;\n@tailwind utilities;\nbody {\n  background-color: #ffffff;\n  color: #000000;\n}\n\nhtml {\n  line-height: 1.15;\n  -webkit-text-size-adjust: 100%;\n}\n\nbody {\n  margin: 0;\n}\n\na {\n  background-color: transparent;\n}\n\n[hidden] {\n  display: none;\n}\n\nhtml {\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;\n  line-height: 1.5;\n}\n\n*, :after, :before {\n  box-sizing: border-box;\n  border: 0 solid #e2e8f0;\n}\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\nsvg, video {\n  display: block;\n  vertical-align: middle;\n}\n\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n.bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255/var(--tw-bg-opacity));\n}\n\n.bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(243 244 246/var(--tw-bg-opacity));\n}\n\n.border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(229 231 235/var(--tw-border-opacity));\n}\n\n.border-t {\n  border-top-width: 1px;\n}\n\n.flex {\n  display: flex;\n}\n\n.grid {\n  display: grid;\n}\n\n.hidden {\n  display: none;\n}\n\n.items-center {\n  align-items: center;\n}\n\n.justify-center {\n  justify-content: center;\n}\n\n.font-semibold {\n  font-weight: 600;\n}\n\n.h-5 {\n  height: 1.25rem;\n}\n\n.h-8 {\n  height: 2rem;\n}\n\n.h-16 {\n  height: 4rem;\n}\n\n.text-sm {\n  font-size: 0.875rem;\n}\n\n.text-lg {\n  font-size: 1.125rem;\n}\n\n.leading-7 {\n  line-height: 1.75rem;\n}\n\n.mx-auto {\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.ml-1 {\n  margin-left: 0.25rem;\n}\n\n.mt-2 {\n  margin-top: 0.5rem;\n}\n\n.mr-2 {\n  margin-right: 0.5rem;\n}\n\n.ml-2 {\n  margin-left: 0.5rem;\n}\n\n.mt-4 {\n  margin-top: 1rem;\n}\n\n.ml-4 {\n  margin-left: 1rem;\n}\n\n.mt-8 {\n  margin-top: 2rem;\n}\n\n.ml-12 {\n  margin-left: 3rem;\n}\n\n.-mt-px {\n  margin-top: -1px;\n}\n\n.max-w-6xl {\n  max-width: 72rem;\n}\n\n.min-h-screen {\n  min-height: 100vh;\n}\n\n.overflow-hidden {\n  overflow: hidden;\n}\n\n.p-6 {\n  padding: 1.5rem;\n}\n\n.py-4 {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n}\n\n.px-6 {\n  padding-left: 1.5rem;\n  padding-right: 1.5rem;\n}\n\n.pt-8 {\n  padding-top: 2rem;\n}\n\n.fixed {\n  position: fixed;\n}\n\n.relative {\n  position: relative;\n}\n\n.top-0 {\n  top: 0;\n}\n\n.right-0 {\n  right: 0;\n}\n\n.shadow {\n  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);\n  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);\n}\n\n.text-center {\n  text-align: center;\n}\n\n.text-gray-200 {\n  --tw-text-opacity: 1;\n  color: rgb(229 231 235/var(--tw-text-opacity));\n}\n\n.text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(209 213 219/var(--tw-text-opacity));\n}\n\n.text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(156 163 175/var(--tw-text-opacity));\n}\n\n.text-gray-500 {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128/var(--tw-text-opacity));\n}\n\n.text-gray-600 {\n  --tw-text-opacity: 1;\n  color: rgb(75 85 99/var(--tw-text-opacity));\n}\n\n.text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81/var(--tw-text-opacity));\n}\n\n.text-gray-900 {\n  --tw-text-opacity: 1;\n  color: rgb(17 24 39/var(--tw-text-opacity));\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.antialiased {\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.w-5 {\n  width: 1.25rem;\n}\n\n.w-8 {\n  width: 2rem;\n}\n\n.w-auto {\n  width: auto;\n}\n\n.grid-cols-1 {\n  grid-template-columns: repeat(1, minmax(0, 1fr));\n}\n\n@media (min-width: 640px) {\n  .sm\\:rounded-lg {\n    border-radius: 0.5rem;\n  }\n  .sm\\:block {\n    display: block;\n  }\n  .sm\\:items-center {\n    align-items: center;\n  }\n  .sm\\:justify-start {\n    justify-content: flex-start;\n  }\n  .sm\\:justify-between {\n    justify-content: space-between;\n  }\n  .sm\\:h-20 {\n    height: 5rem;\n  }\n  .sm\\:ml-0 {\n    margin-left: 0;\n  }\n  .sm\\:px-6 {\n    padding-left: 1.5rem;\n    padding-right: 1.5rem;\n  }\n  .sm\\:pt-0 {\n    padding-top: 0;\n  }\n  .sm\\:text-left {\n    text-align: left;\n  }\n  .sm\\:text-right {\n    text-align: right;\n  }\n}\n@media (min-width: 768px) {\n  .md\\:border-t-0 {\n    border-top-width: 0;\n  }\n  .md\\:border-l {\n    border-left-width: 1px;\n  }\n  .md\\:grid-cols-2 {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (min-width: 1024px) {\n  .lg\\:px-8 {\n    padding-left: 2rem;\n    padding-right: 2rem;\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .dark\\:bg-gray-800 {\n    --tw-bg-opacity: 1;\n    background-color: rgb(31 41 55/var(--tw-bg-opacity));\n  }\n  .dark\\:bg-gray-900 {\n    --tw-bg-opacity: 1;\n    background-color: rgb(17 24 39/var(--tw-bg-opacity));\n  }\n  .dark\\:border-gray-700 {\n    --tw-border-opacity: 1;\n    border-color: rgb(55 65 81/var(--tw-border-opacity));\n  }\n  .dark\\:text-white {\n    --tw-text-opacity: 1;\n    color: rgb(255 255 255/var(--tw-text-opacity));\n  }\n  .dark\\:text-gray-400 {\n    --tw-text-opacity: 1;\n    color: rgb(156 163 175/var(--tw-text-opacity));\n  }\n  .dark\\:text-gray-500 {\n    --tw-text-opacity: 1;\n    color: rgb(107 114 128/var(--tw-text-opacity));\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #ffffff;\n  color: #000000;\n}\n\nhtml {\n  line-height: 1.15;\n  -webkit-text-size-adjust: 100%;\n}\n\nbody {\n  margin: 0;\n}\n\na {\n  background-color: transparent;\n}\n\n[hidden] {\n  display: none;\n}\n\nhtml {\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;\n  line-height: 1.5;\n}\n\n*, :after, :before {\n  box-sizing: border-box;\n  border: 0 solid #e2e8f0;\n}\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\nsvg, video {\n  display: block;\n  vertical-align: middle;\n}\n\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n.bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255/var(--tw-bg-opacity));\n}\n\n.bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(243 244 246/var(--tw-bg-opacity));\n}\n\n.border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(229 231 235/var(--tw-border-opacity));\n}\n\n.border-t {\n  border-top-width: 1px;\n}\n\n.flex {\n  display: flex;\n}\n\n.grid {\n  display: grid;\n}\n\n.hidden {\n  display: none;\n}\n\n.items-center {\n  align-items: center;\n}\n\n.justify-center {\n  justify-content: center;\n}\n\n.font-semibold {\n  font-weight: 600;\n}\n\n.h-5 {\n  height: 1.25rem;\n}\n\n.h-8 {\n  height: 2rem;\n}\n\n.h-16 {\n  height: 4rem;\n}\n\n.text-sm {\n  font-size: 0.875rem;\n}\n\n.text-lg {\n  font-size: 1.125rem;\n}\n\n.leading-7 {\n  line-height: 1.75rem;\n}\n\n.mx-auto {\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.ml-1 {\n  margin-left: 0.25rem;\n}\n\n.mt-2 {\n  margin-top: 0.5rem;\n}\n\n.mr-2 {\n  margin-right: 0.5rem;\n}\n\n.ml-2 {\n  margin-left: 0.5rem;\n}\n\n.mt-4 {\n  margin-top: 1rem;\n}\n\n.ml-4 {\n  margin-left: 1rem;\n}\n\n.mt-8 {\n  margin-top: 2rem;\n}\n\n.ml-12 {\n  margin-left: 3rem;\n}\n\n.-mt-px {\n  margin-top: -1px;\n}\n\n.max-w-6xl {\n  max-width: 72rem;\n}\n\n.min-h-screen {\n  min-height: 100vh;\n}\n\n.overflow-hidden {\n  overflow: hidden;\n}\n\n.p-6 {\n  padding: 1.5rem;\n}\n\n.py-4 {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n}\n\n.px-6 {\n  padding-left: 1.5rem;\n  padding-right: 1.5rem;\n}\n\n.pt-8 {\n  padding-top: 2rem;\n}\n\n.fixed {\n  position: fixed;\n}\n\n.relative {\n  position: relative;\n}\n\n.top-0 {\n  top: 0;\n}\n\n.right-0 {\n  right: 0;\n}\n\n.shadow {\n  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);\n  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);\n}\n\n.text-center {\n  text-align: center;\n}\n\n.text-gray-200 {\n  --tw-text-opacity: 1;\n  color: rgb(229 231 235/var(--tw-text-opacity));\n}\n\n.text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(209 213 219/var(--tw-text-opacity));\n}\n\n.text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(156 163 175/var(--tw-text-opacity));\n}\n\n.text-gray-500 {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128/var(--tw-text-opacity));\n}\n\n.text-gray-600 {\n  --tw-text-opacity: 1;\n  color: rgb(75 85 99/var(--tw-text-opacity));\n}\n\n.text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81/var(--tw-text-opacity));\n}\n\n.text-gray-900 {\n  --tw-text-opacity: 1;\n  color: rgb(17 24 39/var(--tw-text-opacity));\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.antialiased {\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.w-5 {\n  width: 1.25rem;\n}\n\n.w-8 {\n  width: 2rem;\n}\n\n.w-auto {\n  width: auto;\n}\n\n.grid-cols-1 {\n  grid-template-columns: repeat(1, minmax(0, 1fr));\n}\n\n@media (min-width: 640px) {\n  .sm\\:rounded-lg {\n    border-radius: 0.5rem;\n  }\n  .sm\\:block {\n    display: block;\n  }\n  .sm\\:items-center {\n    align-items: center;\n  }\n  .sm\\:justify-start {\n    justify-content: flex-start;\n  }\n  .sm\\:justify-between {\n    justify-content: space-between;\n  }\n  .sm\\:h-20 {\n    height: 5rem;\n  }\n  .sm\\:ml-0 {\n    margin-left: 0;\n  }\n  .sm\\:px-6 {\n    padding-left: 1.5rem;\n    padding-right: 1.5rem;\n  }\n  .sm\\:pt-0 {\n    padding-top: 0;\n  }\n  .sm\\:text-left {\n    text-align: left;\n  }\n  .sm\\:text-right {\n    text-align: right;\n  }\n}\n@media (min-width: 768px) {\n  .md\\:border-t-0 {\n    border-top-width: 0;\n  }\n  .md\\:border-l {\n    border-left-width: 1px;\n  }\n  .md\\:grid-cols-2 {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n@media (min-width: 1024px) {\n  .lg\\:px-8 {\n    padding-left: 2rem;\n    padding-right: 2rem;\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .dark\\:bg-gray-800 {\n    --tw-bg-opacity: 1;\n    background-color: rgb(31 41 55/var(--tw-bg-opacity));\n  }\n  .dark\\:bg-gray-900 {\n    --tw-bg-opacity: 1;\n    background-color: rgb(17 24 39/var(--tw-bg-opacity));\n  }\n  .dark\\:border-gray-700 {\n    --tw-border-opacity: 1;\n    border-color: rgb(55 65 81/var(--tw-border-opacity));\n  }\n  .dark\\:text-white {\n    --tw-text-opacity: 1;\n    color: rgb(255 255 255/var(--tw-text-opacity));\n  }\n  .dark\\:text-gray-400 {\n    --tw-text-opacity: 1;\n    color: rgb(156 163 175/var(--tw-text-opacity));\n  }\n  .dark\\:text-gray-500 {\n    --tw-text-opacity: 1;\n    color: rgb(107 114 128/var(--tw-text-opacity));\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/homepage.scss":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./resources/sass/homepage.scss":
 /*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/homepage.scss ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./resources/sass/homepage.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -2069,7 +2151,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html {\n  background-color: red;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19487,6 +19569,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/global.css":
+/*!***********************************!*\
+  !*** ./resources/sass/global.css ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -19500,7 +19595,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./app.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/app.scss");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_3_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./app.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./resources/sass/app.scss");
 
             
 
@@ -19509,11 +19604,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_app_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_3_app_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_app_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_3_app_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -19530,7 +19625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_homepage_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./homepage.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/homepage.scss");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_3_homepage_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./homepage.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[3]!./resources/sass/homepage.scss");
 
             
 
@@ -19539,11 +19634,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_homepage_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_3_homepage_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_homepage_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_3_homepage_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -24039,6 +24134,7 @@ const isThenable = (thing) =>
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
+/******/ 			"css/global": 0,
 /******/ 			"css/variables": 0
 /******/ 		};
 /******/ 		
@@ -24094,8 +24190,9 @@ const isThenable = (thing) =>
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/variables"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/variables"], () => (__webpack_require__("./resources/sass/variables.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/global","css/variables"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/global","css/variables"], () => (__webpack_require__("./resources/sass/variables.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/global","css/variables"], () => (__webpack_require__("./resources/sass/global.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

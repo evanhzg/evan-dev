@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$primary-color: #003f3b;
+$secondary-color: #fcee21;
+$accent-color: #139dac;
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes buttonHover {
+    0% {
+        border-top-left-radius: 90px;
+        border-bottom-right-radius: 90px;
+    }
+    100% {
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+@keyframes buttonUnhover {
+    0% {
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    100% {
+        border-top-left-radius: 90px;
+        border-bottom-right-radius: 90px;
+    }
+}

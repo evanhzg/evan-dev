@@ -8,14 +8,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/variables.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/coolvetica-2" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/main.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="antialiased">
-<div id="app">
-    @yield('content')
-</div>
+<main>
+    <div id="app" class="snap-proximity snap-y h-screen overflow-scroll">
+        @yield('content')
+        <footer>
+            @include('parts.footer')
+        </footer>
+    </div>
+</main>
+
+<footer>
+</footer>
 </body>
 </html>

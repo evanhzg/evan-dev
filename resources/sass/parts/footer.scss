@@ -1,0 +1,32 @@
+@import "../global";
+
+footer {
+    position: sticky;
+    .footer-group {
+        background-color: $accent-color;
+        color: white;
+        display: flex;
+        padding: 2.2em 2em;
+        gap: 10em;
+
+        .logo-footer {
+            filter: brightness(0) invert(1);
+
+            width: 10em;
+        }
+
+        .content-footer {
+            display: flex;
+            align-items: center;
+            justify-self: center;
+            justify-content: space-evenly;
+            gap: 4em;
+            font-size: 1.7em;
+
+            p {
+                cursor: default;
+                user-select: none;
+            }
+        }
+    }
+}

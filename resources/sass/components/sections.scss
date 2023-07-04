@@ -1,6 +1,4 @@
-$primary-color: #003f3b;
-$secondary-color: #fcee21;
-$accent-color: #139dac;
+@import "../global";
 
 * {
     font-family: Coolvetica;
@@ -22,6 +20,10 @@ $accent-color: #139dac;
         display: flex;
         flex-direction: column;
         gap: 1em;
+
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: 2s;
 
         > * {
             margin: 0;
@@ -48,6 +50,13 @@ $accent-color: #139dac;
         }
     }
 
+    .slide-in {
+        animation: slideFromLeft 1s;
+
+        opacity: 1;
+        transform: translateX(0);
+    }
+
     button {
         font-family: Coolvetica;
 
@@ -58,8 +67,22 @@ $accent-color: #139dac;
         background-color: transparent;
         border: 2px solid $secondary-color;
 
+        opacity: 0;
         max-width: 8em;
         align-self: center;
+
+        cursor: pointer;
+
+        &:hover {
+            animation: buttonHover .2s ease-in-out forwards;
+
+            font-weight: bold;
+            border-width: 2px;
+        }
+
+        &:not(:hover) {
+            animation: buttonUnhover .2s ease-in-out forwards;
+        }
     }
 
     &:before {
@@ -70,6 +93,7 @@ $accent-color: #139dac;
         display: flex;
         justify-content: space-between;
 
+        opacity: 0;
         .bubble {
             display: flex;
             align-items: center;
@@ -86,25 +110,6 @@ $accent-color: #139dac;
 
             .bubble-label {
                 color: $primary-color;
-            }
-        }
-    }
-
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        max-width: 40vw;
-        input {
-            color: white;
-            background-color: transparent;
-            border: none;
-            border-bottom: 2px solid white;
-            font-size: 2.5em;
-            padding: 4px;
-
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.5);
             }
         }
     }

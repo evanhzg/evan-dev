@@ -1,0 +1,43 @@
+@import "../global";
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4em;
+    max-width: 40vw;
+    opacity: 0;
+
+    .input-group {
+        position: relative;
+        pointer-events: none;
+
+        * {
+            font-size: 2em;
+        }
+        input {
+            pointer-events: all;
+            color: white;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid white;
+            padding: 4px;
+            -webkit-appearance: none;
+            outline: none;
+
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                border-bottom-color: $accent-color;
+            }
+        }
+
+        label {
+            position: absolute;
+            left: 0;
+            top: 18%;
+
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.1s ease-in-out;
+        }
+
+    }
+}
